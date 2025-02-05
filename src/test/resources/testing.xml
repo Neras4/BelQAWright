@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="UI Tests Suite">
+    <test name="Features Toolbar Tests">
+        <classes>
+            <class name="org.example.belqawright.ST.TestFeaturesToolbar">
+                <methods>
+                    <include name="testOpenFormLayout"/>
+                    <include name="testOpenSmartTable"/>
+                    <include name="testOpenCalendar"/>
+                    <include name="testOpenRegisterPage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="IoT Dashboard Tests">
+        <classes>
+            <class name="org.example.belqawright.ST.IOTDashboardTest">
+                <methods>
+                    <include name="testToggleSmartHouseComponent"/>
+                    <include name="testChooseRoom"/>
+                    <include name="testChangeTemperatureOrHumidity"/>
+                    <include name="testInteractWithCamera"/>
+                    <include name="testExecuteMusicPlayer"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

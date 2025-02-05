@@ -1,0 +1,70 @@
+### Build artifacts ###
+target/
+build/
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+.sts4-cache/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Playwright ###
+playwright-report/
+test-results/
+trace.zip
+*.har
+
+### Allure Reports ###
+allure-results/
+allure-report/
+
+### Logs and Temp files ###
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+
+### System files ###
+Thumbs.db
+ehthumbs.db
+.DS_Store
+._*
+
+### Executables and binaries ###
+*.class
+*.jar
+*.war
+*.ear
+*.exe
+*.dll
+*.so
+*.o
+*.a
+*.out
+*.bin
+*.dmg
+*.iso
+*.img
