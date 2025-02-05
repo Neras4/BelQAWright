@@ -48,8 +48,6 @@ The tested application is based on [pw-practice-app](https://github.com/bondar-a
 
 - **`src/main/java`** – Page Objects and Utilities  
 - **`src/test/java`** – Test Cases  
-- **`target/`** – Build outputs and reports (ignored in Git)  
-- **`allure-report/`** – Allure test reports (ignored in Git)  
 - **`pom.xml`** – Maven dependencies  
 
 ## 🤖 Technologies  
