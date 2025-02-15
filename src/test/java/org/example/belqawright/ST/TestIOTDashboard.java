@@ -8,7 +8,7 @@ import org.example.belqawright.driver.BrowserManager;
 import org.example.belqawright.pages.IOTDashboard;
 import org.example.belqawright.utils.WebTestUtils;
 import org.example.belqawright.validation.EssentialUIValidator;
-import org.example.belqawright.validation.ST.IOTDashboardTestValidation;
+import org.example.belqawright.validation.ST.IOTDashboardValidator;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 
 @Epic("UI Tests")
 @Feature("IoT Dashboard Features Tests")
-public class IOTDashboardTest {
+public class TestIOTDashboard {
     private Page page;
 
     @BeforeClass
@@ -39,16 +39,16 @@ public class IOTDashboardTest {
         IOTDashboard iotDashboard = new IOTDashboard(page);
 
         iotDashboard.toggleSmartHouseComponent("Roller Shades");
-        IOTDashboardTestValidation.validateToggleObject(page, "Roller Shades", "OFF");
+        IOTDashboardValidator.validateToggleObject(page, "Roller Shades", "OFF");
 
         iotDashboard.toggleSmartHouseComponent("Roller Shades");
-        IOTDashboardTestValidation.validateToggleObject(page,"Roller Shades", "ON");
+        IOTDashboardValidator.validateToggleObject(page,"Roller Shades", "ON");
 
         iotDashboard.toggleSmartHouseComponent("Coffee Maker");
-        IOTDashboardTestValidation.validateToggleObject(page,"Coffee Maker", "OFF");
+        IOTDashboardValidator.validateToggleObject(page,"Coffee Maker", "OFF");
 
         iotDashboard.toggleSmartHouseComponent("Coffee Maker");
-        IOTDashboardTestValidation.validateToggleObject(page,"Coffee Maker", "ON");
+        IOTDashboardValidator.validateToggleObject(page,"Coffee Maker", "ON");
     }
 
     @Test(description = "Test: Choose room on Room Management")
@@ -58,10 +58,10 @@ public class IOTDashboardTest {
         IOTDashboard iotDashboard = new IOTDashboard(page);
 
         iotDashboard.chooseRoom("Kitchen");
-        IOTDashboardTestValidation.validateChooseRoom(page,"Kitchen");
+        IOTDashboardValidator.validateChooseRoom(page,"Kitchen");
 
         iotDashboard.chooseRoom("Hallway");
-        IOTDashboardTestValidation.validateChooseRoom(page,"Hallway");
+        IOTDashboardValidator.validateChooseRoom(page,"Hallway");
     }
 
     @Test(description = "Test: Change temperature or humidity")
@@ -72,12 +72,12 @@ public class IOTDashboardTest {
 
         double initialTemp = iotDashboard.getCurrentValue("temperature");
         iotDashboard.dragCircleFromTab("Temperature", 50.0, 50.5);
-        IOTDashboardTestValidation.validateValueChange("Temperature", initialTemp,
+        IOTDashboardValidator.validateValueChange("Temperature", initialTemp,
                 () -> iotDashboard.getCurrentValue("temperature"));
 
         double initialHumidity = iotDashboard.getCurrentValue("humidity");
         iotDashboard.dragCircleFromTab("Humidity", 50.0, 50.5);
-        IOTDashboardTestValidation.validateValueChange("Humidity", initialHumidity,
+        IOTDashboardValidator.validateValueChange("Humidity", initialHumidity,
                 () -> iotDashboard.getCurrentValue("humidity"));
     }
 
@@ -88,10 +88,10 @@ public class IOTDashboardTest {
         IOTDashboard iotDashboard = new IOTDashboard(page);
 
         iotDashboard.chooseSpecificCamera("Camera #4");
-        IOTDashboardTestValidation.validateCameraInteraction(page,"Specific camera");
+        IOTDashboardValidator.validateCameraInteraction(page,"Specific camera");
 
         iotDashboard.showAllCamerasView();
-        IOTDashboardTestValidation.validateCameraInteraction(page,"Whole cameras view");
+        IOTDashboardValidator.validateCameraInteraction(page,"Whole cameras view");
     }
 
     @Test(description = "Test: Execute music player")
@@ -103,17 +103,17 @@ public class IOTDashboardTest {
         String previousTrackName = trackObject.innerText();
 
         iotDashboard.executePlayMusic();
-        IOTDashboardTestValidation.validateMusicStatus(page,"Play", true, previousTrackName);
+        IOTDashboardValidator.validateMusicStatus(page,"Play", true, previousTrackName);
 
         iotDashboard.skipForwardMusic();
-        IOTDashboardTestValidation.validateMusicStatus(page,"Skip Forward", true, previousTrackName);
+        IOTDashboardValidator.validateMusicStatus(page,"Skip Forward", true, previousTrackName);
         previousTrackName = trackObject.innerText();
 
         iotDashboard.skipBackMusic();
-        IOTDashboardTestValidation.validateMusicStatus(page,"Skip Back", true, previousTrackName);
+        IOTDashboardValidator.validateMusicStatus(page,"Skip Back", true, previousTrackName);
         previousTrackName = trackObject.innerText();
 
         iotDashboard.executePlayMusic();
-        IOTDashboardTestValidation.validateMusicStatus(page,"Pause", false, previousTrackName);
+        IOTDashboardValidator.validateMusicStatus(page,"Pause", false, previousTrackName);
     }
 }

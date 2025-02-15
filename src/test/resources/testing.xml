@@ -14,13 +14,27 @@
     </test>
     <test name="IoT Dashboard Tests">
         <classes>
-            <class name="org.example.belqawright.ST.IOTDashboardTest">
+            <class name="org.example.belqawright.ST.TestIOTDashboard">
                 <methods>
                     <include name="testToggleSmartHouseComponent"/>
                     <include name="testChooseRoom"/>
                     <include name="testChangeTemperatureOrHumidity"/>
                     <include name="testInteractWithCamera"/>
                     <include name="testExecuteMusicPlayer"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Form Layouts Tests">
+        <classes>
+            <class name="org.example.belqawright.ST.TestFormLayouts">
+                <methods>
+                    <include name="testFillInlineForm"/>
+                    <include name="testFillGridForm"/>
+                    <include name="testFillBasicForm"/>
+                    <include name="testFillBlockForm"/>
+                    <include name="testFillFormWithoutLabels"/>
+                    <include name="testFillHorizontalForm"/>
                 </methods>
             </class>
         </classes>

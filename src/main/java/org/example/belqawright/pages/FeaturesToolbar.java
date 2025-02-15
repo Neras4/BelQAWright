@@ -5,7 +5,7 @@ import com.microsoft.playwright.Page;
 import io.qameta.allure.Step;
 import org.example.belqawright.pages.auth.Register;
 import org.example.belqawright.pages.extraComponents.Calendar;
-import org.example.belqawright.pages.forms.FormLayout;
+import org.example.belqawright.pages.forms.FormLayouts;
 import org.example.belqawright.pages.tablesAndData.SmartTable;
 import org.example.belqawright.utils.ActionUtils;
 import org.example.belqawright.utils.LoggingUtils;
@@ -22,9 +22,9 @@ public class FeaturesToolbar {
     }
 
     @Step("Open Form Layout")
-    public FormLayout openFormLayout() {
+    public FormLayouts openFormLayout() {
         clickAndExpandFeature("Forms", "Form Layouts");
-        return new FormLayout(page);
+        return new FormLayouts(page);
     }
 
     @Step("Open Smart Table")
