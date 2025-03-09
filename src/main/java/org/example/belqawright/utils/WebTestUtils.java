@@ -58,9 +58,15 @@ public class WebTestUtils {
 
     public static boolean waitForElementVisible(Locator locator, int timeout) {
         try {
-            locator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE).setTimeout(timeout));
-            return locator.isVisible();
+            locator.waitFor(new Locator.WaitForOptions()
+                    .setState(WaitForSelectorState.VISIBLE)
+                    .setTimeout(timeout));
+            boolean isVisible = locator.isVisible();
+
+            if (!isVisible) LoggingUtils.logError("Element is found, but not visible", new Throwable());
+            return isVisible;
         } catch (Exception e) {
+            LoggingUtils.logError("Error waiting for element to be visible " + e.getMessage(), e);
             return false;
         }
     }

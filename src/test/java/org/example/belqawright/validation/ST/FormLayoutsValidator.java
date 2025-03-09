@@ -2,12 +2,15 @@ package org.example.belqawright.validation.ST;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import org.example.belqawright.utils.LoggingUtils;
 import org.testng.Assert;
 
 import java.util.Map;
 
-public class FormLayoutValidator {
+public class FormLayoutsValidator {
     public static void validateFormInputs(Page page, String formName, Map<String, String> inputValues, Map<String, Boolean> toggleElements) {
+        LoggingUtils.logDebug(String.format("Validating Form layout: %s", formName));
+
         Locator formCard = page.locator(String.format("nb-card:has(nb-card-header:text('%s'))", formName));
 
         for (Map.Entry<String, String> entry : inputValues.entrySet()) {

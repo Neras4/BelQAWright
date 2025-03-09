@@ -7,7 +7,7 @@ import org.example.belqawright.driver.BrowserManager;
 import org.example.belqawright.pages.forms.FormLayouts;
 import org.example.belqawright.utils.WebTestUtils;
 import org.example.belqawright.validation.EssentialUIValidator;
-import org.example.belqawright.validation.ST.FormLayoutValidator;
+import org.example.belqawright.validation.ST.FormLayoutsValidator;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -41,7 +41,7 @@ public class TestFormLayouts {
         FormLayouts formLayouts = new FormLayouts(page);
         formLayouts.fillInlineForm(name, email, true);
 
-        FormLayoutValidator.validateFormInputs(page, "Inline form",
+        FormLayoutsValidator.validateFormInputs(page, "Inline form",
                 Map.of("input[placeholder='Jane Doe']", name, "input[placeholder='Email']", email),
                 Map.of("nb-checkbox .custom-checkbox", true));
     }
@@ -55,7 +55,7 @@ public class TestFormLayouts {
         FormLayouts formLayouts = new FormLayouts(page);
         formLayouts.fillGridForm(email, password, option);
 
-        FormLayoutValidator.validateFormInputs(page, "Using the Grid",
+        FormLayoutsValidator.validateFormInputs(page, "Using the Grid",
                 Map.of("#inputEmail1", email, "#inputPassword2", password),
                 Map.of(String.format("nb-radio:has(span:text('%s')) input", option), true));
     }
@@ -67,7 +67,7 @@ public class TestFormLayouts {
         FormLayouts formLayouts = new FormLayouts(page);
         formLayouts.fillBasicForm(email, password, true);
 
-        FormLayoutValidator.validateFormInputs(page, "Basic form",
+        FormLayoutsValidator.validateFormInputs(page, "Basic form",
                 Map.of("#exampleInputEmail1", email, "#exampleInputPassword1", password),
                 Map.of("nb-checkbox .custom-checkbox", true));
     }
@@ -81,7 +81,7 @@ public class TestFormLayouts {
         FormLayouts formLayouts = new FormLayouts(page);
         formLayouts.fillBlockForm(firstName, lastName, email, website);
 
-        FormLayoutValidator.validateFormInputs(page, "Block form",
+        FormLayoutsValidator.validateFormInputs(page, "Block form",
                 Map.of("#inputFirstName", firstName, "#inputLastName", lastName, "#inputEmail", email,
                         "#inputWebsite", website),
                 Map.of());
@@ -96,7 +96,7 @@ public class TestFormLayouts {
         FormLayouts formLayouts = new FormLayouts(page);
         formLayouts.fillFormWithoutLabels(name, subject, "Test Message");
 
-        FormLayoutValidator.validateFormInputs(page, "Form without labels",
+        FormLayoutsValidator.validateFormInputs(page, "Form without labels",
                 Map.of("input[placeholder='Recipients']", name, "input[placeholder='Subject']", subject,
                         "textarea[placeholder='Message']", "Test Message"),
                 Map.of());
@@ -109,7 +109,7 @@ public class TestFormLayouts {
         FormLayouts formLayouts = new FormLayouts(page);
         formLayouts.fillHorizontalForm(email, password, true);
 
-        FormLayoutValidator.validateFormInputs(page, "Horizontal form",
+        FormLayoutsValidator.validateFormInputs(page, "Horizontal form",
                 Map.of("#inputEmail3", email, "#inputPassword3", password),
                 Map.of("nb-checkbox .custom-checkbox", true));
     }

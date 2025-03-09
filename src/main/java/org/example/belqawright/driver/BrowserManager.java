@@ -3,6 +3,8 @@ package org.example.belqawright.driver;
 import com.microsoft.playwright.*;
 import org.example.belqawright.utils.LoggingUtils;
 
+import java.util.List;
+
 public class BrowserManager {
     private static Playwright playwright;
     private static Browser browser;
@@ -30,7 +32,9 @@ public class BrowserManager {
 
     public static Page createPage() {
         try {
-            Page page = getBrowser().newPage();
+            BrowserContext context = getBrowser().newContext(new Browser.NewContextOptions()
+                    .setViewportSize(1920, 1080));
+            Page page = context.newPage();
             LoggingUtils.logInfo("New page created.");
             return page;
         } catch (Exception e) {

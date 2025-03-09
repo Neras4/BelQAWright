@@ -39,4 +39,15 @@
             </class>
         </classes>
     </test>
+    <test name="Calendar Tests">
+        <classes>
+            <class name="org.example.belqawright.ST.TestCalendar">
+                <methods>
+                    <include name="testSelectSingleDate"/>
+                    <include name="testSelectDayRange"/>
+                    <include name="testSelectPricedDate"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
