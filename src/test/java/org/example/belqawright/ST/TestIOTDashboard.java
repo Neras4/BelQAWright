@@ -8,7 +8,7 @@ import org.example.belqawright.driver.BrowserManager;
 import org.example.belqawright.pages.IOTDashboard;
 import org.example.belqawright.utils.WebTestUtils;
 import org.example.belqawright.validation.EssentialUIValidator;
-import org.example.belqawright.validation.ST.IOTDashboardValidator;
+import org.example.belqawright.validation.ST.ValidatorIOTDashboard;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -39,16 +39,16 @@ public class TestIOTDashboard {
         IOTDashboard iotDashboard = new IOTDashboard(page);
 
         iotDashboard.toggleSmartHouseComponent("Roller Shades");
-        IOTDashboardValidator.validateToggleObject(page, "Roller Shades", "OFF");
+        ValidatorIOTDashboard.validateToggleObject(page, "Roller Shades", "OFF");
 
         iotDashboard.toggleSmartHouseComponent("Roller Shades");
-        IOTDashboardValidator.validateToggleObject(page,"Roller Shades", "ON");
+        ValidatorIOTDashboard.validateToggleObject(page,"Roller Shades", "ON");
 
         iotDashboard.toggleSmartHouseComponent("Coffee Maker");
-        IOTDashboardValidator.validateToggleObject(page,"Coffee Maker", "OFF");
+        ValidatorIOTDashboard.validateToggleObject(page,"Coffee Maker", "OFF");
 
         iotDashboard.toggleSmartHouseComponent("Coffee Maker");
-        IOTDashboardValidator.validateToggleObject(page,"Coffee Maker", "ON");
+        ValidatorIOTDashboard.validateToggleObject(page,"Coffee Maker", "ON");
     }
 
     @Test(description = "Test: Choose room on Room Management")
@@ -58,10 +58,10 @@ public class TestIOTDashboard {
         IOTDashboard iotDashboard = new IOTDashboard(page);
 
         iotDashboard.chooseRoom("Kitchen");
-        IOTDashboardValidator.validateChooseRoom(page,"Kitchen");
+        ValidatorIOTDashboard.validateChooseRoom(page,"Kitchen");
 
         iotDashboard.chooseRoom("Hallway");
-        IOTDashboardValidator.validateChooseRoom(page,"Hallway");
+        ValidatorIOTDashboard.validateChooseRoom(page,"Hallway");
     }
 
     @Test(description = "Test: Change temperature or humidity")
@@ -72,12 +72,12 @@ public class TestIOTDashboard {
 
         double initialTemp = iotDashboard.getCurrentValue("temperature");
         iotDashboard.dragCircleFromTab("Temperature", 50.0, 50.5);
-        IOTDashboardValidator.validateValueChange("Temperature", initialTemp,
+        ValidatorIOTDashboard.validateValueChange("Temperature", initialTemp,
                 () -> iotDashboard.getCurrentValue("temperature"));
 
         double initialHumidity = iotDashboard.getCurrentValue("humidity");
         iotDashboard.dragCircleFromTab("Humidity", 50.0, 50.5);
-        IOTDashboardValidator.validateValueChange("Humidity", initialHumidity,
+        ValidatorIOTDashboard.validateValueChange("Humidity", initialHumidity,
                 () -> iotDashboard.getCurrentValue("humidity"));
     }
 
@@ -88,10 +88,10 @@ public class TestIOTDashboard {
         IOTDashboard iotDashboard = new IOTDashboard(page);
 
         iotDashboard.chooseSpecificCamera("Camera #4");
-        IOTDashboardValidator.validateCameraInteraction(page,"Specific camera");
+        ValidatorIOTDashboard.validateCameraInteraction(page,"Specific camera");
 
         iotDashboard.showAllCamerasView();
-        IOTDashboardValidator.validateCameraInteraction(page,"Whole cameras view");
+        ValidatorIOTDashboard.validateCameraInteraction(page,"Whole cameras view");
     }
 
     @Test(description = "Test: Execute music player")
@@ -103,17 +103,17 @@ public class TestIOTDashboard {
         String previousTrackName = trackObject.innerText();
 
         iotDashboard.executePlayMusic();
-        IOTDashboardValidator.validateMusicStatus(page,"Play", true, previousTrackName);
+        ValidatorIOTDashboard.validateMusicStatus(page,"Play", true, previousTrackName);
 
         iotDashboard.skipForwardMusic();
-        IOTDashboardValidator.validateMusicStatus(page,"Skip Forward", true, previousTrackName);
+        ValidatorIOTDashboard.validateMusicStatus(page,"Skip Forward", true, previousTrackName);
         previousTrackName = trackObject.innerText();
 
         iotDashboard.skipBackMusic();
-        IOTDashboardValidator.validateMusicStatus(page,"Skip Back", true, previousTrackName);
+        ValidatorIOTDashboard.validateMusicStatus(page,"Skip Back", true, previousTrackName);
         previousTrackName = trackObject.innerText();
 
         iotDashboard.executePlayMusic();
-        IOTDashboardValidator.validateMusicStatus(page,"Pause", false, previousTrackName);
+        ValidatorIOTDashboard.validateMusicStatus(page,"Pause", false, previousTrackName);
     }
 }

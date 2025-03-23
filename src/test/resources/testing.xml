@@ -50,4 +50,16 @@
             </class>
         </classes>
     </test>
+    <test name="Smart Table Tests">
+        <classes>
+            <class name="org.example.belqawright.ST.TestSmartTable">
+                <methods>
+                    <include name="testSubmitNewRecord"/>
+                    <include name="testEditRecord"/>
+                    <include name="testDeleteRecord"/>
+                    <include name="testSearchAndFilter"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>

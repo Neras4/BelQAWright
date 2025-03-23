@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 import java.util.Map;
 
-public class FormLayoutsValidator {
+public class ValidatorFormLayouts {
     public static void validateFormInputs(Page page, String formName, Map<String, String> inputValues, Map<String, Boolean> toggleElements) {
         LoggingUtils.logDebug(String.format("Validating Form layout: %s", formName));
 

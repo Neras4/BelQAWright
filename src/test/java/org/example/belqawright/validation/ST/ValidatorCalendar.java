@@ -10,7 +10,7 @@ import java.text.DateFormatSymbols;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class CalendarValidator {
+public class ValidatorCalendar {
 
     public static void validateSelectSingleDate(Page page, int year, String month, int day) {
         LoggingUtils.logDebug("Validating single date");

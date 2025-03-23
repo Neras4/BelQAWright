@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 import java.util.function.Supplier;
 
-public class IOTDashboardValidator {
+public class ValidatorIOTDashboard {
 
     public static void validateToggleObject(Page page, String componentName, String expectedStatus) {
         LoggingUtils.logDebug(String.format("Validating toggle status for '%s', expected: %s", componentName, expectedStatus));
