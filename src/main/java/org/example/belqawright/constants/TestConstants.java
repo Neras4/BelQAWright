@@ -7,4 +7,5 @@ public class TestConstants {
     public static final String SMART_TABLE_URL = BASE_URL + "/pages/tables/smart-table";
     public static final String CALENDAR_URL = BASE_URL + "/pages/extra-components/calendar";
     public static final String REGISTER_URL = BASE_URL + "/auth/register";
+    public static final String LOGIN_URL = BASE_URL + "/auth/login";
 }

@@ -15,6 +15,7 @@ public class UserFactory {
                 faker.name().lastName(),
                 "@" + faker.name().username(),
                 faker.internet().emailAddress(),
+                faker.internet().password(),
                 String.valueOf(ThreadLocalRandom.current().nextInt(18, 80))
         );
     }

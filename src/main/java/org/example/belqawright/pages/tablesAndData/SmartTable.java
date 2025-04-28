@@ -203,7 +203,6 @@ public class SmartTable {
         }
     }
 
-
     private void clickAddButton(Locator row) { clickButton(row, "nb-plus", "Add button"); }
     private void clickAcceptButton(Locator row) { clickButton(row, "nb-checkmark", "Accept button"); }
     private void clickRejectButton(Locator row) { clickButton(row, "nb-close", "Reject button"); }

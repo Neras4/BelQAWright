@@ -70,4 +70,19 @@ public class WebTestUtils {
             return false;
         }
     }
+
+    public static boolean waitForElementNotVisible(Locator locator, int timeout) {
+        try {
+            locator.waitFor(new Locator.WaitForOptions()
+                    .setState(WaitForSelectorState.HIDDEN)
+                    .setTimeout(timeout));
+            boolean isVisible = locator.isVisible();
+
+            if (isVisible) LoggingUtils.logError("Element is found, but not hidden", new Throwable());
+            return !isVisible;
+        } catch (Exception e) {
+            LoggingUtils.logError("Error waiting for element to be not visible " + e.getMessage(), e);
+            return false;
+        }
+    }
 }

@@ -62,4 +62,30 @@
             </class>
         </classes>
     </test>
+    <test name="Register Tests">
+        <classes>
+            <class name="org.example.belqawright.ST.TestRegister">
+                <methods>
+                    <include name="testNameField"/>
+                    <include name="testEmailField"/>
+                    <include name="testPasswordField"/>
+                    <include name="testConfirmPasswordField"/>
+                    <include name="testRegisterNewUser"/>
+                    <include name="testGoToLoginPage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Login Tests">
+        <classes>
+            <class name="org.example.belqawright.ST.TestLogin">
+                <methods>
+                    <include name="testEmailField"/>
+                    <include name="testPasswordField"/>
+                    <include name="testLoginWithValidCredentials"/>
+                    <include name="testGoToRegisterPage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
