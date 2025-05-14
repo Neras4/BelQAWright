@@ -1,6 +1,6 @@
 package org.example.belqawright.constants;
 
-public class TestConstants {
+public class TestUiConstants {
     public static final String BASE_URL = "http://localhost:4200";
     public static final String IOT_DASHBOARD_URL = BASE_URL + "/pages/iot-dashboard";
     public static final String FORMS_LAYOUT_URL = BASE_URL + "/pages/forms/layouts";

@@ -1,13 +1,13 @@
-package org.example.belqawright.ST;
+package org.example.belqawright.ui.tests;
 
 import com.microsoft.playwright.Page;
 import io.qameta.allure.*;
-import org.example.belqawright.constants.TestConstants;
+import org.example.belqawright.constants.TestUiConstants;
 import org.example.belqawright.driver.BrowserManager;
 import org.example.belqawright.pages.forms.FormLayouts;
 import org.example.belqawright.utils.WebTestUtils;
 import org.example.belqawright.validation.EssentialUIValidator;
-import org.example.belqawright.validation.ST.ValidatorFormLayouts;
+import org.example.belqawright.ui.validation.ValidatorFormLayouts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -27,7 +27,7 @@ public class TestFormLayouts {
     @BeforeClass
     public void setup() {
         page = BrowserManager.createPage();
-        WebTestUtils.navigateToURL(page, TestConstants.FORMS_LAYOUT_URL, 5000);
+        WebTestUtils.navigateToURL(page, TestUiConstants.FORMS_LAYOUT_URL, 5000);
         EssentialUIValidator.validateEssentialUIElements(page, new FormLayouts(page).getEssentialUIElementsOnFormLayouts());
     }
 

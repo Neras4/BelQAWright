@@ -1,14 +1,14 @@
-package org.example.belqawright.ST;
+package org.example.belqawright.ui.tests;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import io.qameta.allure.*;
-import org.example.belqawright.constants.TestConstants;
+import org.example.belqawright.constants.TestUiConstants;
 import org.example.belqawright.driver.BrowserManager;
 import org.example.belqawright.pages.IOTDashboard;
 import org.example.belqawright.utils.WebTestUtils;
 import org.example.belqawright.validation.EssentialUIValidator;
-import org.example.belqawright.validation.ST.ValidatorIOTDashboard;
+import org.example.belqawright.ui.validation.ValidatorIOTDashboard;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -22,8 +22,8 @@ public class TestIOTDashboard {
     @BeforeClass
     public void setup() {
         page = BrowserManager.createPage();
-        WebTestUtils.navigateToURL(page, TestConstants.BASE_URL, 5000);
-        Assert.assertEquals(page.url(), TestConstants.IOT_DASHBOARD_URL, "Failed to navigate to the IoT dashboard URL");
+        WebTestUtils.navigateToURL(page, TestUiConstants.BASE_URL, 5000);
+        Assert.assertEquals(page.url(), TestUiConstants.IOT_DASHBOARD_URL, "Failed to navigate to the IoT dashboard URL");
         EssentialUIValidator.validateEssentialUIElements(page, new IOTDashboard(page).getEssentialUIElementsOnIOTDashboard());
     }
 

@@ -1,12 +1,13 @@
 # BelQAWright (Playwright testing)
 This project contains automated **UI and API tests** for a web application using **Playwright**, **TestNG**, and **Allure Reporting**. The tests cover various **E2E scenarios** and **component interactions**, such as **forms, charts, tables, smart home devices, and more**.  
 
-The tested application is based on [pw-practice-app](https://github.com/bondar-artem/pw-practice-app), used in the [Playwright from Zero to Hero](https://www.udemy.com/course/playwright-from-zero-to-hero/) course on Udemy.  
+The tested UI part is based on [pw-practice-app](https://github.com/bondar-artem/pw-practice-app), used in the [Playwright from Zero to Hero](https://www.udemy.com/course/playwright-from-zero-to-hero/) course on Udemy. 
+The tested API part is base on [Swagger Petstore](https://petstore.swagger.io).
 
 ## 📌 Features  
 
 - **End-to-End (E2E - Planned) and System UI tests**  
-- **API Testing (Planned)**  
+- **API Testing**  
 - **Page Object Model (POM) Structure**  
 - **Logging and Screenshot Utilities**  
 - **Allure Reports**  
@@ -17,6 +18,7 @@ The tested application is based on [pw-practice-app](https://github.com/bondar-a
 - **Java 21+**  
 - **Maven**  
 - **Playwright**  
+- **REST Assured**
 - **Node.js** (for Playwright dependencies)  
 
 ### Installation  

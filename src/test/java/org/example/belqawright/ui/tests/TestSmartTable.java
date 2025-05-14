@@ -1,16 +1,16 @@
-package org.example.belqawright.ST;
+package org.example.belqawright.ui.tests;
 
 import com.microsoft.playwright.Page;
 import io.qameta.allure.*;
-import org.example.belqawright.constants.TestConstants;
+import org.example.belqawright.constants.TestUiConstants;
 import org.example.belqawright.driver.BrowserManager;
 import org.example.belqawright.pages.tablesAndData.SmartTable;
-import org.example.belqawright.testData.StaticUsers;
+import org.example.belqawright.testdata.StaticUsers;
 import org.example.belqawright.utils.factories.User;
 import org.example.belqawright.utils.WebTestUtils;
 import org.example.belqawright.utils.factories.UserFactory;
 import org.example.belqawright.validation.EssentialUIValidator;
-import org.example.belqawright.validation.ST.ValidatorSmartTable;
+import org.example.belqawright.ui.validation.ValidatorSmartTable;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -26,7 +26,7 @@ public class TestSmartTable {
     @BeforeClass
     public void setup() {
         page = BrowserManager.createPage();
-        WebTestUtils.navigateToURL(page, TestConstants.SMART_TABLE_URL, 5000);
+        WebTestUtils.navigateToURL(page, TestUiConstants.SMART_TABLE_URL, 5000);
         EssentialUIValidator.validateEssentialUIElements(page, new SmartTable(page).getEssentialUIElementsOnSmartTable());
     }
 

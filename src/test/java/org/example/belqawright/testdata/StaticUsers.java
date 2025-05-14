@@ -1,4 +1,4 @@
-package org.example.belqawright.testData;
+package org.example.belqawright.testdata;
 
 import org.example.belqawright.utils.factories.User;
 

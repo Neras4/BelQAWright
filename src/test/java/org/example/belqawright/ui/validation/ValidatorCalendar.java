@@ -1,4 +1,4 @@
-package org.example.belqawright.validation.ST;
+package org.example.belqawright.ui.validation;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;

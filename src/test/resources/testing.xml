@@ -2,7 +2,7 @@
 <suite name="UI Tests Suite">
     <test name="Features Toolbar Tests">
         <classes>
-            <class name="org.example.belqawright.ST.TestFeaturesToolbar">
+            <class name="org.example.belqawright.ui.tests.TestFeaturesToolbar">
                 <methods>
                     <include name="testOpenFormLayout"/>
                     <include name="testOpenSmartTable"/>
@@ -14,7 +14,7 @@
     </test>
     <test name="IoT Dashboard Tests">
         <classes>
-            <class name="org.example.belqawright.ST.TestIOTDashboard">
+            <class name="org.example.belqawright.ui.tests.TestIOTDashboard">
                 <methods>
                     <include name="testToggleSmartHouseComponent"/>
                     <include name="testChooseRoom"/>
@@ -27,7 +27,7 @@
     </test>
     <test name="Form Layouts Tests">
         <classes>
-            <class name="org.example.belqawright.ST.TestFormLayouts">
+            <class name="org.example.belqawright.ui.tests.TestFormLayouts">
                 <methods>
                     <include name="testFillInlineForm"/>
                     <include name="testFillGridForm"/>
@@ -41,7 +41,7 @@
     </test>
     <test name="Calendar Tests">
         <classes>
-            <class name="org.example.belqawright.ST.TestCalendar">
+            <class name="org.example.belqawright.ui.tests.TestCalendar">
                 <methods>
                     <include name="testSelectSingleDate"/>
                     <include name="testSelectDayRange"/>
@@ -52,7 +52,7 @@
     </test>
     <test name="Smart Table Tests">
         <classes>
-            <class name="org.example.belqawright.ST.TestSmartTable">
+            <class name="org.example.belqawright.ui.tests.TestSmartTable">
                 <methods>
                     <include name="testSubmitNewRecord"/>
                     <include name="testEditRecord"/>
@@ -64,7 +64,7 @@
     </test>
     <test name="Register Tests">
         <classes>
-            <class name="org.example.belqawright.ST.TestRegister">
+            <class name="org.example.belqawright.ui.tests.TestRegister">
                 <methods>
                     <include name="testNameField"/>
                     <include name="testEmailField"/>
@@ -78,12 +78,33 @@
     </test>
     <test name="Login Tests">
         <classes>
-            <class name="org.example.belqawright.ST.TestLogin">
+            <class name="org.example.belqawright.ui.tests.TestLogin">
                 <methods>
                     <include name="testEmailField"/>
                     <include name="testPasswordField"/>
                     <include name="testLoginWithValidCredentials"/>
                     <include name="testGoToRegisterPage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Pet API Tests">
+        <classes>
+            <class name="org.example.belqawright.api.tests.TestPetApi">
+                <methods>
+                    <include name="testCreateNewPet"/>
+                    <include name="testCreatePetWithMissingName"/>
+                    <include name="testGetPetById"/>
+                    <include name="testGetPetByNotExistedId"/>
+                    <include name="testGetPetsByValidStatuses"/>
+                    <include name="testGetPetsByIncorrectStatus"/>
+                    <include name="testUpdateExistingPet"/>
+                    <include name="testUpdatePetWithIncorrectId"/>
+                    <include name="testUpdateExistingPetWithFormData"/>
+                    <include name="testUpdateExistingPetWithFormDataWithIncorrectId"/>
+                    <include name="testDeletePet"/>
+                    <include name="testDeletePetWithIncorrectId"/>
+                    <include name="testDeletePetWithIncorrectIdAsNotNumeric"/>
                 </methods>
             </class>
         </classes>

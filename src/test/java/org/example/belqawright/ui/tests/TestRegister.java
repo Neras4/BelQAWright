@@ -1,8 +1,8 @@
-package org.example.belqawright.ST;
+package org.example.belqawright.ui.tests;
 
 import com.microsoft.playwright.Page;
 import io.qameta.allure.*;
-import org.example.belqawright.constants.TestConstants;
+import org.example.belqawright.constants.TestUiConstants;
 import org.example.belqawright.driver.BrowserManager;
 import org.example.belqawright.pages.auth.Login;
 import org.example.belqawright.pages.auth.Register;
@@ -10,7 +10,7 @@ import org.example.belqawright.utils.WebTestUtils;
 import org.example.belqawright.utils.factories.UserFactory;
 import org.example.belqawright.utils.factories.User;
 import org.example.belqawright.validation.EssentialUIValidator;
-import org.example.belqawright.validation.ST.ValidatorRegister;
+import org.example.belqawright.ui.validation.ValidatorRegister;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -24,7 +24,7 @@ public class TestRegister {
     @BeforeClass
     public void setup() {
         page = BrowserManager.createPage();
-        WebTestUtils.navigateToURL(page, TestConstants.REGISTER_URL, 5000);
+        WebTestUtils.navigateToURL(page, TestUiConstants.REGISTER_URL, 5000);
         EssentialUIValidator.validateEssentialUIElements(page, new Register(page).getEssentialUIElementsOnRegister());
     }
 
@@ -140,7 +140,7 @@ public class TestRegister {
         ValidatorRegister.validateRegisterButtonIsActive(page, true);
         registerPage.clickRegisterButton();
 
-        WebTestUtils.verifyNavigationAndHeaderVisibility(page, 7000, TestConstants.IOT_DASHBOARD_URL,
+        WebTestUtils.verifyNavigationAndHeaderVisibility(page, 7000, TestUiConstants.IOT_DASHBOARD_URL,
                 page.locator("a.logo"), "Login header is not visible");
     }
 
@@ -148,13 +148,13 @@ public class TestRegister {
     @Story("Register page")
     @Severity(SeverityLevel.NORMAL)
     public void testGoToLoginPage() {
-        WebTestUtils.navigateToURL(page, TestConstants.REGISTER_URL, 5000);
+        WebTestUtils.navigateToURL(page, TestUiConstants.REGISTER_URL, 5000);
         EssentialUIValidator.validateEssentialUIElements(page, new Register(page).getEssentialUIElementsOnRegister());
 
         Register registerPage = new Register(page);
         Login login = registerPage.goToLoginPage();
 
-        WebTestUtils.verifyNavigationAndHeaderVisibility(page, 5000, TestConstants.LOGIN_URL,
+        WebTestUtils.verifyNavigationAndHeaderVisibility(page, 5000, TestUiConstants.LOGIN_URL,
                 page.locator("h1:text('Login')"), "Login header is not visible");
         EssentialUIValidator.validateEssentialUIElements(page, login.getEssentialUIElementsOnLogin());
     }

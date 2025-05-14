@@ -1,14 +1,14 @@
-package org.example.belqawright.ST;
+package org.example.belqawright.ui.tests;
 
 import com.microsoft.playwright.Page;
 import io.qameta.allure.*;
-import org.example.belqawright.constants.TestConstants;
+import org.example.belqawright.constants.TestUiConstants;
 import org.example.belqawright.driver.BrowserManager;
 import org.example.belqawright.pages.auth.Login;
 import org.example.belqawright.pages.auth.Register;
 import org.example.belqawright.utils.WebTestUtils;
 import org.example.belqawright.validation.EssentialUIValidator;
-import org.example.belqawright.validation.ST.ValidatorLogin;
+import org.example.belqawright.ui.validation.ValidatorLogin;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -21,7 +21,7 @@ public class TestLogin {
     @BeforeClass
     public void setup() {
         page = BrowserManager.createPage();
-        WebTestUtils.navigateToURL(page, TestConstants.LOGIN_URL, 5000);
+        WebTestUtils.navigateToURL(page, TestUiConstants.LOGIN_URL, 5000);
         EssentialUIValidator.validateEssentialUIElements(page, new Login(page).getEssentialUIElementsOnLogin());
     }
 
@@ -99,7 +99,7 @@ public class TestLogin {
         ValidatorLogin.validateLoginButtonIsActive(page, true);
         login.clickLoginButton();
 
-        WebTestUtils.verifyNavigationAndHeaderVisibility(page, 7000, TestConstants.IOT_DASHBOARD_URL,
+        WebTestUtils.verifyNavigationAndHeaderVisibility(page, 7000, TestUiConstants.IOT_DASHBOARD_URL,
                 page.locator("a.logo"), "Login header is not visible");
     }
 
@@ -107,13 +107,13 @@ public class TestLogin {
     @Story("Login page")
     @Severity(SeverityLevel.NORMAL)
     public void testGoToRegisterPage() {
-        WebTestUtils.navigateToURL(page, TestConstants.LOGIN_URL, 5000);
+        WebTestUtils.navigateToURL(page, TestUiConstants.LOGIN_URL, 5000);
         EssentialUIValidator.validateEssentialUIElements(page, new Login(page).getEssentialUIElementsOnLogin());
 
         Login login = new Login(page);
         Register register = login.goToRegisterPage();
 
-        WebTestUtils.verifyNavigationAndHeaderVisibility(page, 7000, TestConstants.REGISTER_URL,
+        WebTestUtils.verifyNavigationAndHeaderVisibility(page, 7000, TestUiConstants.REGISTER_URL,
                 page.locator("h1"), "Register header is not visible");
         EssentialUIValidator.validateEssentialUIElements(page, register.getEssentialUIElementsOnRegister());
     }

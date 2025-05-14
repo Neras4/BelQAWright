@@ -1,14 +1,14 @@
-package org.example.belqawright.ST;
+package org.example.belqawright.ui.tests;
 
 import com.microsoft.playwright.Page;
 import freemarker.template.utility.StringUtil;
 import io.qameta.allure.*;
-import org.example.belqawright.constants.TestConstants;
+import org.example.belqawright.constants.TestUiConstants;
 import org.example.belqawright.driver.BrowserManager;
 import org.example.belqawright.pages.extraComponents.Calendar;
 import org.example.belqawright.utils.WebTestUtils;
 import org.example.belqawright.validation.EssentialUIValidator;
-import org.example.belqawright.validation.ST.ValidatorCalendar;
+import org.example.belqawright.ui.validation.ValidatorCalendar;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -27,8 +27,8 @@ public class TestCalendar {
     @BeforeClass
     public void setup() {
         page = BrowserManager.createPage();
-        WebTestUtils.navigateToURL(page, TestConstants.CALENDAR_URL, 5000);
-        Assert.assertEquals(page.url(), TestConstants.CALENDAR_URL, "Failed to navigate to the IoT dashboard URL");
+        WebTestUtils.navigateToURL(page, TestUiConstants.CALENDAR_URL, 5000);
+        Assert.assertEquals(page.url(), TestUiConstants.CALENDAR_URL, "Failed to navigate to the IoT dashboard URL");
         EssentialUIValidator.validateEssentialUIElements(page, new Calendar(page).getEssentialUIElementsOnCalendar());
     }
 

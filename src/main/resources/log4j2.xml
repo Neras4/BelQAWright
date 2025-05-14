@@ -45,6 +45,16 @@
             </Policies>
             <DefaultRolloverStrategy max="10"/>
         </RollingFile>
+
+        <RollingFile name="ApiRollingFile" fileName="target/logs/api/api.log"
+                     filePattern="target/logs/api-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
     </Appenders>
 
     <Loggers>
@@ -53,11 +63,16 @@
             <AppenderRef ref="RollingFile"/>
         </Root>
 
-        <Logger name="org.example.astraqa" level="debug" additivity="false">
+        <Logger name="org.example.belqawright" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="DebugRollingFile"/>
             <AppenderRef ref="ErrorRollingFile"/>
             <AppenderRef ref="InfoRollingFile"/>
+        </Logger>
+
+        <Logger name="org.example.belqawright.utils.TestLoggingUtils" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="ApiRollingFile"/>
         </Logger>
     </Loggers>
 </Configuration>
